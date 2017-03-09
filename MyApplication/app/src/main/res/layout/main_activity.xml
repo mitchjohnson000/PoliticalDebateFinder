@@ -20,7 +20,14 @@
             android:hint="@string/Password_text"
             android:inputType="textPassword"
             android:id="@+id/password_box"/>
-        <TextView
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sign_in"
+            android:text="@string/sign_in"
+            android:textSize="8pt"
+            />
+        <Button
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

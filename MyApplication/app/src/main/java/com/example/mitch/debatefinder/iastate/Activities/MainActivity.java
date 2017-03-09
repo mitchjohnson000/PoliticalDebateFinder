@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -18,7 +19,8 @@ public class MainActivity extends Activity{
 
     public EditText login;
     public EditText password;
-    public TextView register;
+    public Button register;
+    public Button signIn;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -27,12 +29,20 @@ public class MainActivity extends Activity{
         //inits
         login = (EditText) findViewById(R.id.login_box);
         password = (EditText) findViewById(R.id.password_box);
-        register = (TextView) findViewById(R.id.register_box);
+        register = (Button) findViewById(R.id.register_box);
+        signIn = (Button) findViewById(R.id.sign_in);
         //onClickListeners
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //goto register
 
+            }
+        });
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //call API
             }
         });
 
