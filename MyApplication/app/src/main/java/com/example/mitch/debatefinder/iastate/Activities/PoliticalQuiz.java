@@ -1,18 +1,16 @@
 package com.example.mitch.debatefinder.iastate.Activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-
 import com.example.mitch.debatefinder.R;
+import com.example.mitch.debatefinder.iastate.models.Question;
+import com.example.mitch.debatefinder.iastate.views.PoliticalTestListViewItem;
 
 import java.util.ArrayList;
 
@@ -30,52 +28,43 @@ public class PoliticalQuiz extends Activity  {
 
         //* *EDIT* *
         ListView listview = (ListView) findViewById(R.id.listView1);
-
     }
 
-    public void onItemClick(AdapterView<?> l, View v, int position, long id) {
-        Log.i("HelloListView", "You clicked Item: " + id + " at position:" + position);
-        // Then you start a new Activity via Intent
-        Intent intent = new Intent();
-        //intent.setClass(this, ListItemDetail.class);
-        //intent.putExtra("position", position);
-        // Or / And
-        //intent.putExtra("id", id);
-        //startActivity(intent);
-    }
 
     class Adapter extends BaseAdapter{
 
-        ArrayList<String> data = new ArrayList<>();
+        ArrayList<Question> questions;
 
-        public Adapter(ArrayList<String> data) {
+        public Adapter(ArrayList<Question> questions) {
             super();
-            this.data = data;
+            this.questions = questions;
 
         }
 
         @Override
         public int getCount() {
-            return 0;
+            return questions.size();
         }
 
         @Override
         public long getItemId(int position) {
-            return 0;
+            return position;
         }
 
         @Override
         public Object getItem(int position) {
-            return null;
+            return questions.get(position);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if(convertView == null){
-
+                convertView = new PoliticalTestListViewItem(getApplicationContext(), questions.get(position));
             }
 
-            return null;
+
+
+            return convertView;
         }
     }
 }
